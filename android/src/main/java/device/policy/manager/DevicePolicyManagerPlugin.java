@@ -76,9 +76,9 @@ public class DevicePolicyManagerPlugin
             this.mActivity.stopLockTask();
             result.success(null);
         } else if (call.method.equals("isDeviceOwnerApp")) {
-            result.success(deviceManger.isDeviceOwnerApp(appContext.getPackageName()););
+            result.success(deviceManger.isDeviceOwnerApp(appContext.getPackageName()));
         } else if (call.method.equals("isDeviceOwnerApp")) {
-            result.success(deviceManger.isLockTaskPermitted(appContext.getPackageName()););
+            result.success(deviceManger.isLockTaskPermitted(appContext.getPackageName()));
         }  
         else {
             result.notImplemented();
