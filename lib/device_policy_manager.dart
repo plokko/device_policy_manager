@@ -70,4 +70,23 @@ class DevicePolicyManager {
       rethrow;
     }
   }
+
+  static Future<void> startLockTask() async {
+    try {
+      await _channel.invokeMethod('startLockTask');
+    } on PlatformException catch (error) {
+      log("$error");
+      rethrow;
+    }
+  }
+  
+
+  static Future<void> stopLockTask() async {
+    try {
+      await _channel.invokeMethod('stopLockTask');
+    } on PlatformException catch (error) {
+      log("$error");
+      rethrow;
+    }
+  }
 }

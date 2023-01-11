@@ -63,6 +63,10 @@ public class DevicePolicyManagerPlugin
             } else {
                 result.error("ERROR", "You need to enable the Admin Device Features", null);
             }
+        } else if (call.method.equals("startLockTask")) {
+            this.mActivity.startLockTask();
+        } else if (call.method.equals("stopLockTask")) {
+            this.mActivity.stopLockTask();
         } else {
             result.notImplemented();
         }
