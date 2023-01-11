@@ -89,4 +89,21 @@ class DevicePolicyManager {
       rethrow;
     }
   }
+
+  static Future<void> enableDeviceOwner() async {
+    try {
+      await _channel.invokeMethod('enableDeviceOwner');
+    } on PlatformException catch (error) {
+      log("$error");
+      rethrow;
+    }
+  }
+  static Future<void> disableDeviceOwner() async {
+    try {
+      await _channel.invokeMethod('disableDeviceOwner');
+    } on PlatformException catch (error) {
+      log("$error");
+      rethrow;
+    }
+  }
 }
