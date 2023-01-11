@@ -64,14 +64,23 @@ public class DevicePolicyManagerPlugin
                 result.error("ERROR", "You need to enable the Admin Device Features", null);
             }
         } else if (call.method.equals("enableDeviceOwner")) {
-            deviceManger.setLockTaskPackages(compName, arrayOf(appContext.packageName));
+            deviceManger.setLockTaskPackages(compName, new String[]{appContext.getPackageName()});
+            result.success(null);
         } else if (call.method.equals("disableDeviceOwner")) {
             deviceManger.removeActiveAdmin(compName);
+            result.success(null);
         } else if (call.method.equals("startLockTask")) {
             this.mActivity.startLockTask();
+            result.success(null);
         } else if (call.method.equals("stopLockTask")) {
             this.mActivity.stopLockTask();
-        } else {
+            result.success(null);
+        } else if (call.method.equals("isDeviceOwnerApp")) {
+            result.success(deviceManger.isDeviceOwnerApp(appContext.getPackageName()););
+        } else if (call.method.equals("isDeviceOwnerApp")) {
+            result.success(deviceManger.isLockTaskPermitted(appContext.getPackageName()););
+        }  
+        else {
             result.notImplemented();
         }
     }

@@ -106,4 +106,24 @@ class DevicePolicyManager {
       rethrow;
     }
   }
+
+  /// Check if the application is set as device owner
+  static Future<bool> isDeviceOwnerApp() async {
+    try {
+      return await _channel.invokeMethod('isDeviceOwnerApp');
+    } on PlatformException catch (error) {
+      log("Error: $error");
+      rethrow;
+    }
+  }
+  
+  static Future<bool> isLockTaskPermitted() async {
+    try {
+      return await _channel.invokeMethod('isLockTaskPermitted');
+    } on PlatformException catch (error) {
+      log("Error: $error");
+      rethrow;
+    }
+  }
+  
 }
